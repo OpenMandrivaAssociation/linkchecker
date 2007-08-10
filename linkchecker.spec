@@ -1,6 +1,6 @@
 %define name linkchecker
-%define version 4.6
-%define release %mkrel 3
+%define version 4.7
+%define release %mkrel 1
 
 Summary: Check HTML documents for broken links
 Name: %{name}
