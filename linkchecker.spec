@@ -11,7 +11,6 @@ Source0: http://prdownloads.sourceforge.net/%name/%name-%version.tar.bz2
 License: GPL
 Group: Networking/WWW
 BuildRequires: python-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Conflicts: man-pages-fr < 1.58.0-17mdk
 
 %description
