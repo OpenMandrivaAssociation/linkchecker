@@ -12,6 +12,7 @@ License: GPL
 Group: Networking/WWW
 BuildRequires: python-devel
 BuildRequires: qt4-assistant
+Requires: python-qt4
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Conflicts: man-pages-fr < 1.58.0-17mdk
 
