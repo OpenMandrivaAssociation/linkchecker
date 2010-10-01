@@ -1,16 +1,17 @@
 %define name linkchecker
-%define version 4.7
-%define release %mkrel 4
+%define version 5.3
+%define release %mkrel 1
 
 Summary: Check HTML documents for broken links
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Url: http://linkchecker.sourceforge.net
-Source0: http://prdownloads.sourceforge.net/%name/%name-%version.tar.bz2
+Source0: http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.gz
 License: GPL
 Group: Networking/WWW
 BuildRequires: python-devel
+BuildRequires: qt4-assistant
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Conflicts: man-pages-fr < 1.58.0-17mdk
 
@@ -31,15 +32,13 @@ Conflicts: man-pages-fr < 1.58.0-17mdk
   o (Fast)CGI web interface (requires HTTP server)
 
 %prep
-%setup -q
-
-find -type f | xargs chmod a+r 
-find -type f | xargs perl -pi -e 's|python2\.4|python|g'
+%setup -qn LinkChecker-%{version}
 
 %build
-python setup.py config #-lcrypto
+pushd doc/html
+make
+popd
 python setup.py build
-make locale PYTHON=python
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -48,20 +47,17 @@ python setup.py install --root=%{buildroot}
 install -d %{buildroot}/etc
 mv %{buildroot}/usr/share/linkchecker/linkcheckerrc %{buildroot}/etc
 
-# as in debian/rules, why??
-rm -rf %{buildroot}%{_libdir}/python*/site-packages/linkcheckssl
-
-%find_lang %name
+%find_lang LinkChecker
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %name.lang
+%files -f LinkChecker.lang
 %defattr(-,root,root)
-%doc README TODO
+%doc readme.txt
 %config(noreplace) /etc/*
 %{_bindir}/*
-%{_libdir}/python*/site-packages/*
+%{py_platsitedir}/*
 %{_mandir}/*/*
 %_datadir/%name
 
