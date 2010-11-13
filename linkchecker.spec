@@ -1,11 +1,7 @@
-%define name linkchecker
-%define version 5.3
-%define release %mkrel 1
-
 Summary: Check HTML documents for broken links
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name: linkchecker
+Version: 5.4
+Release: %mkrel 1
 Url: http://linkchecker.sourceforge.net
 Source0: http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.gz
 License: GPL
@@ -14,7 +10,6 @@ BuildRequires: python-devel
 BuildRequires: qt4-assistant
 Requires: python-qt4
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Conflicts: man-pages-fr < 1.58.0-17mdk
 
 %description
  Features:
@@ -61,5 +56,3 @@ rm -rf $RPM_BUILD_ROOT
 %{py_platsitedir}/*
 %{_mandir}/*/*
 %_datadir/%name
-
-
