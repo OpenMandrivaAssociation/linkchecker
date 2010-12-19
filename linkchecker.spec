@@ -1,9 +1,9 @@
 Summary: Check HTML documents for broken links
 Name: linkchecker
-Version: 5.5
+Version: 6.0
 Release: %mkrel 1
 Url: http://linkchecker.sourceforge.net
-Source0: http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.gz
+Source0: http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.bz2
 License: GPL
 Group: Networking/WWW
 BuildRequires: python-devel
