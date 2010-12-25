@@ -1,6 +1,6 @@
 Summary: Check HTML documents for broken links
 Name: linkchecker
-Version: 6.0
+Version: 6.1
 Release: %mkrel 1
 Url: http://linkchecker.sourceforge.net
 Source0: http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.bz2
