@@ -1,7 +1,7 @@
 Summary: Check HTML documents for broken links
 Name: linkchecker
-Version: 7.0
-Release: %mkrel 1
+Version: 7.5
+Release: 1
 Url: http://linkchecker.sourceforge.net
 Source0: http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.bz2
 License: GPL
@@ -9,7 +9,7 @@ Group: Networking/WWW
 BuildRequires: python-devel
 BuildRequires: qt4-assistant
 Requires: python-qt4
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Patch0:   7.4-missing-files.patch
 
 %description
  Features:
@@ -29,15 +29,18 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %prep
 %setup -qn LinkChecker-%{version}
+%patch0 -p1
 
 %build
+export PATH=$PATH:/usr/lib/qt4/bin/
+
 pushd doc/html
-make
+ make
 popd
+
 python setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
 python setup.py install --root=%{buildroot}
 
 install -d %{buildroot}/etc
@@ -45,12 +48,7 @@ mv %{buildroot}/usr/share/linkchecker/linkcheckerrc %{buildroot}/etc
 
 %find_lang LinkChecker
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files -f LinkChecker.lang
-%defattr(-,root,root)
-%doc readme.txt
 %config(noreplace) /etc/*
 %{_bindir}/*
 %{py_platsitedir}/*
