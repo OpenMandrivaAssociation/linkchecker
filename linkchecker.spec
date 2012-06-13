@@ -2,7 +2,7 @@
 
 Summary:	Check HTML documents for broken links
 Name:		linkchecker
-Version:	7.8
+Version:	7.9
 Release:	1
 Url:		http://linkchecker.sourceforge.net
 Source0:	http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.bz2
@@ -53,6 +53,7 @@ mv %{buildroot}/usr/share/linkchecker/linkcheckerrc %{buildroot}/etc
 %files -f %{name}.lang
 %config(noreplace) /etc/*
 %{_bindir}/*
+%{_datadir}/applications/*.desktop
 %{py_platsitedir}/*
 %{_mandir}/*/*
 %_datadir/%name
