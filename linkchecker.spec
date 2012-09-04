@@ -2,16 +2,15 @@
 
 Summary:	Check HTML documents for broken links
 Name:		linkchecker
-Version:	7.9
+Version:	8.0
 Release:	1
 Url:		http://linkchecker.sourceforge.net
-Source0:	http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.xz
 License:	GPLv2+
 Group:		Networking/WWW
 BuildRequires:	python-devel
 BuildRequires:	qt4-assistant
 Requires:	python-qt4
-Patch0:		7.4-missing-files.patch
 
 %description
  Features:
@@ -31,7 +30,6 @@ Patch0:		7.4-missing-files.patch
 
 %prep
 %setup -qn LinkChecker-%{version}
-%patch0 -p1
 
 %build
 export PATH=$PATH:/usr/lib/qt4/bin/
