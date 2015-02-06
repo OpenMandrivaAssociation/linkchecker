@@ -3,7 +3,7 @@
 Summary:	Check HTML documents for broken links
 Name:		linkchecker
 Version:	8.3
-Release:	1
+Release:	2
 Url:		http://linkchecker.sourceforge.net
 Source0:	http://downloads.sourceforge.net/project/linkchecker/%{version}/LinkChecker-%{version}.tar.xz
 License:	GPLv2+
